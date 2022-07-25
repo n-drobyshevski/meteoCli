@@ -9,4 +9,15 @@ const printHelp = () => {
     -t [API_TOKEN] to set token 
     `))
 }
-export { printHelp }
+
+const printSuccess = (msg) => {
+    console.log(`${chalk.bgGreen("SUCCESS")}
+    ${msg}
+    `)
+} 
+const printError = (msg) => {
+    console.log(`${chalk.bgRed("ERROR")}
+    ${msg}
+    `)
+}
+export { printHelp, printError, printSuccess }
