@@ -16,9 +16,13 @@ const saveCity = async (city) => {
     if (city) {
         await saveKeyValue('city', city)
     }
-
 }
 
+const setLanguage = async (lang) => {
+    if (lang) {
+        await saveKeyValue('lang', lang)
+    }
+}
 const getForecast = async () => {
     const data = await getWeather()
     console.log(data)
@@ -35,6 +39,9 @@ const cliInit = () => {
     }
     if (args.t) {
         return saveToken(args.t);
+    }
+    if(args.l){
+        return setLanguage(args.l)
     }
     return getForecast()
 
