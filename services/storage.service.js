@@ -27,4 +27,10 @@ const saveKeyValue = async (key, value) => {
 
 }
 
-export { saveKeyValue }
+const getKeyValue = async () => {
+    let res = {};
+    const file = await promises.readFile(FILE_PATH)
+    res = JSON.parse(file)
+    return res
+}
+export { saveKeyValue, getKeyValue }

@@ -2,6 +2,7 @@
 // ab1c76e9b0b9a762d74b32366a201ba9
 
 import { getArgs } from "./helpers/args.js";
+import { getWeather } from "./services/api.service.js";
 import { printHelp } from "./services/log.service.js";
 import { saveKeyValue } from "./services/storage.service.js";
 
@@ -10,6 +11,12 @@ const saveToken = async (token) => {
         await saveKeyValue('token', token)
     }
 }
+
+const getForecast = async () => {
+    const data = await getWeather()
+    console.log(data)
+}
+
 const cliInit = () => {
     let args = getArgs(process.argv);
     if (args.h) {
@@ -23,6 +30,7 @@ const cliInit = () => {
     if (args.t) {
         return saveToken(args.t);
     }
+    return getForecast()
 
 }
 
