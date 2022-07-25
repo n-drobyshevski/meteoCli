@@ -12,6 +12,13 @@ const saveToken = async (token) => {
     }
 }
 
+const saveCity = async (city) => {
+    if (city) {
+        await saveKeyValue('city', city)
+    }
+
+}
+
 const getForecast = async () => {
     const data = await getWeather()
     console.log(data)
@@ -24,8 +31,7 @@ const cliInit = () => {
     }
     if (args.c) {
         const city = args.c;
-        console.log(city);
-        return saveCity();
+        return saveCity(city);
     }
     if (args.t) {
         return saveToken(args.t);
