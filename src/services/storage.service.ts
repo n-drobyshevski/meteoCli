@@ -4,13 +4,18 @@ import { homedir } from "os"
 
 const FILE_PATH = join(homedir(), 'weather_data.json')
 
-const DATA_DICTIONARY = {
-    token : 'token',
-    city: 'city',
-    lang: 'lang',
+
+interface IDataDictionary {
+    [key: string]: string
 }
 
-const isExist = async (file_path) => {
+const DATA_DICTIONARY: IDataDictionary = {
+    'token' : 'token',
+    'city': 'city',
+    'lang': 'lang',
+}
+
+const isExist = async (file_path: string):Promise<boolean> => {
     try{
         await promises.stat(file_path);
         return true ;
@@ -19,10 +24,10 @@ const isExist = async (file_path) => {
     }
 }
 
-const saveKeyValue = async (key, value) => {
-    let data = {};
+const saveKeyValue = async (key: string, value: string):Promise<void> => {
+    let data: IDataDictionary = {};
     if (await isExist(FILE_PATH)){  
-        const file = await promises.readFile(FILE_PATH);
+        const file: any = await promises.readFile(FILE_PATH);
         data = JSON.parse(file);
     }
     data[key] = value;
@@ -33,7 +38,7 @@ const saveKeyValue = async (key, value) => {
 
 const getKeyValue = async () => {
     let res = {};
-    const file = await promises.readFile(FILE_PATH);
+    const file : any= await promises.readFile(FILE_PATH);
     res = JSON.parse(file);
     return res;
 }
