@@ -9,9 +9,9 @@ Meteo CLI is a command-line interface (CLI) tool that allows users to quickly an
 To use Meteo CLI, you will need to have Node.js and npm (Node Package Manager) installed on your computer. Once you have these prerequisites, you can proceed with the following steps:
 
 1. Clone the Meteo CLI repository to your local machine by running git clone https://github.com/n-drobyshevski/meteoCli
-2. Navigate to the meteoCLI directory by running cd meteoCli
-3. Install the required dependencies by running npm install
-4. Compile the TypeScript code to JavaScript by running npm run build
+2. Navigate to the meteoCLI directory by running `cd meteoCli`
+3. Install the required dependencies by running `npm install`
+4. Compile the TypeScript code to JavaScript by running `npm run build`
 
 ## Usage
 
